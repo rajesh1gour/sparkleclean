@@ -303,6 +303,9 @@ h6 {
   position: relative;
   z-index: 2;
   margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
 }
 
 .ribbon-item {
@@ -1805,9 +1808,17 @@ h6 {
     margin-top: 2rem;
   }
 
+  .hero-ribbon .col-12 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
   .ribbon-item {
-    width: calc(50% - 10px);
-    margin: 5px;
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    text-align: center;
   }
 
   .section-title {
@@ -1954,7 +1965,7 @@ h6 {
 
   .ribbon-item {
     width: 100%;
-    margin: 6px 0;
+    margin: 0;
   }
 
   .section-title {
@@ -2008,6 +2019,16 @@ h6 {
     width: 100%;
   }
 
+  .hero-ribbon .col-12 {
+    gap: 8px;
+  }
+
+  .ribbon-item {
+    padding: 9px 8px;
+    gap: 6px;
+    font-size: 0.78rem;
+  }
+
   .section-title {
     font-size: 1.75rem;
   }
@@ -2050,6 +2071,13 @@ h6 {
     text-align: center;
   }
 }
+
+ @media (max-width: 400px) {
+      .hero-badge {
+        padding: 7px 12px;
+        font-size: 0.7rem;
+    }
+ }
 
 /* Make primary WhatsApp CTAs responsive on small screens */
 @media (max-width: 768px) {
