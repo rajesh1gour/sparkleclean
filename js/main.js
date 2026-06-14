@@ -17,17 +17,36 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Sticky Navbar scroll behavior
   const navbar = document.querySelector('.navbar-custom');
   
+  const navbarCollapseEl = document.getElementById('navbarNav');
+  const siteLogo = document.getElementById('site-logo');
+
+  const updateLogo = () => {
+    if (!siteLogo) return;
+    const collapseOpen = navbarCollapseEl ? navbarCollapseEl.classList.contains('show') : false;
+    const whiteBg = navbar.classList.contains('scrolled') || collapseOpen;
+    siteLogo.src = whiteBg ? 'images/log.png' : 'images/logo2.png';
+  };
+
   const handleScroll = () => {
     if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
+    updateLogo();
   };
   
   window.addEventListener('scroll', handleScroll);
   // Run once on load to handle mid-page refreshes
   handleScroll();
+  // Also ensure logo is correct on load
+  updateLogo();
+
+  // Update logo when mobile navbar collapse opens/closes (Bootstrap collapse events)
+  if (navbarCollapseEl) {
+    navbarCollapseEl.addEventListener('shown.bs.collapse', updateLogo);
+    navbarCollapseEl.addEventListener('hidden.bs.collapse', updateLogo);
+  }
 
   // 2. Before/After Sliders Interaction
   const sliders = document.querySelectorAll('.slider-container');
