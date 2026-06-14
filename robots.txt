@@ -1,0 +1,20 @@
+# Robots.txt for Extreme Cleaners website
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Specific rules for Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://yourwebsite.com/sitemap.xml
+
+# Crawl delay (optional - wait 1 second between requests)
+Crawl-delay: 1
